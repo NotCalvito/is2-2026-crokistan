@@ -7,4 +7,5 @@
 | Diego Hernan Recalde             | UX Lead      | @JuanPacoPedrodelaMar         |
 
 Descripcion del projecto: 
-
+Tablero Kanban:
+Reporte semanal: 
