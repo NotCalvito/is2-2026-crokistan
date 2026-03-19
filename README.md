@@ -7,6 +7,7 @@
 | Diego Hernan Recalde             | UX Lead      | @JuanPacoPedrodelaMar         |
 
 Descripcion del projecto: 
+
 Tablero Kanban: https://github.com/users/NotCalvito/projects/2/views/1
 
 Reporte semanal: 
