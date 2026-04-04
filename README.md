@@ -11,4 +11,9 @@ Descripcion del projecto: Un sistema cuya finalidad es la de gestionar el stock 
 
 Tablero Kanban: https://github.com/users/NotCalvito/projects/2/views/1
 
+Patrones de diseño utilizados:
+- strategy
+- observer
+- factory
+
 Reporte semanal: 
