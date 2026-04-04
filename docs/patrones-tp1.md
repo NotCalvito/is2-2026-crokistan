@@ -37,7 +37,7 @@ inventario.actualizar_stock("Martillo", 50)
 
 ```
 ---
-## 🔹 Strategy
+##  Strategy
 
 **Nombre del patrón:** Strategy  
 **Intención:** Permitir elegir dinámicamente un algoritmo o comportamiento.  
@@ -64,3 +64,41 @@ class PrecioDescuento(EstrategiaPrecio):
 # Uso
 estrategia = PrecioDescuento()
 print(estrategia.calcular(100))
+```
+---
+##  Factory  
+
+**Nombre del patrón:** Factory  
+**Intención:** Crear objetos sin especificar su clase concreta.  
+**Problema que resuelve:** Crear distintos tipos de productos (por ejemplo: martillo, clavo, tornillo) sin acoplar el código.  
+**Justificación de la elección:** Permite agregar nuevos productos fácilmente sin modificar el código existente.  
+
+**Ejemplo en el código:**  
+```python
+class Producto:
+    def descripcion(self):
+        pass
+
+class Martillo(Producto):
+    def descripcion(self,):
+        return "Martillo"
+
+class Clavo(Producto):
+    def descripcion(self):
+        return "Clavo"
+
+class ProductoFactory:
+    @staticmethod
+    def crear_producto(tipo):
+        if tipo == "martillo":
+            return Martillo()
+        elif tipo == "clavo":
+            return Clavo()
+        else:
+            return None
+
+# Uso
+producto = ProductoFactory.crear_producto("martillo")
+print(producto.descripcion())
+```
+
