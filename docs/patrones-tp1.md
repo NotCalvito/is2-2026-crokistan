@@ -6,6 +6,7 @@
 **Justificación de la elección:** Permite que distintos sistemas (ventas, alertas o reportes) reaccionen a cambios en el inventario sin depender directamente del módulo de stock.
 
 **Este código implementa un sistema donde el inventario notifica automáticamente a otros componentes cuando cambia el stock de un producto. Por ejemplo, el sistema de ventas recibe una alerta cada vez que se actualiza el stock. Esto evita que los módulos estén directamente conectados entre sí.**
+
 **Ejemplo en el código:**
 ```python
 
@@ -47,6 +48,7 @@ inventario.actualizar_stock("Martillo", 50)
 **Justificación de la elección:** Evita muchos `if/else` y permite cambiar la lógica sin modificar el código principal.  
 
 **Este código define distintas formas de calcular el precio de un producto mediante clases que representan estrategias. En lugar de usar condicionales, se elige una estrategia (por ejemplo, descuento) y se aplica al precio base. Esto permite cambiar fácilmente la forma de cálculo sin modificar el resto del sistema**
+
 **Ejemplo en el código:**
 ```python
 from abc import ABC, abstractmethod
@@ -77,6 +79,7 @@ print(estrategia.calcular(100))
 **Justificación de la elección:** Permite agregar nuevos productos fácilmente sin modificar el código existente.  
 
 **Este código permite crear distintos tipos de productos (como martillos o clavos) sin instanciarlos directamente. En su lugar, se utiliza una fábrica que decide qué objeto crear según un parámetro. Esto facilita agregar nuevos productos sin modificar el código existente.**
+
 **Ejemplo en el código:**  
 ```python
 class Producto:
