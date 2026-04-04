@@ -24,15 +24,15 @@ To do.
 Herramienta utilizada: ChatGPT
 Consulta realizada (Prompt):
 "Necesito ejemplos en Python de los patrones Strategy, Observer y Factory para un sistema de stock de ferretería"
+
 Respuesta de la IA (Resumen):
+Se generaron implementaciones en Python de los patrones Strategy, Observer y Factory, utilizando clases, métodos y ejemplos de uso aplicados a un sistema de stock.
 
-Se generaron ejemplos de código en Python para cada patrón de diseño (Strategy, Observer y Factory), mostrando su implementación mediante clases, métodos y ejemplos de uso.
 Uso en el proyecto:
-Los códigos fueron utilizados como base para implementar:
-Cálculo de precios con distintas estrategias.
-
-Notificación de cambios en el stock.
-Creación de productos en el sistema.
+Se utilizaron los códigos como base para:
+Implementar cálculo de precios con distintas estrategias (Strategy).
+Notificar cambios en el stock (Observer).
+Crear distintos tipos de productos (Factory).
 
 Evaluación:
-Correcta – El código fue funcional, claro y adaptable al sistema.
+Correcta – Los códigos fueron funcionales y se adaptaron fácilmente al proyecto.
