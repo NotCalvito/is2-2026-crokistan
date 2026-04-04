@@ -5,7 +5,9 @@
 **Problema que resuelve:** Avisar cuando cambia el stock de un producto.  
 **Justificación de la elección:** Permite que distintos sistemas (ventas, alertas o reportes) reaccionen a cambios en el inventario sin depender directamente del módulo de stock.
 
+
 **Ejemplo en el código:**
+**Este código define distintas formas de calcular el precio de un producto mediante clases que representan estrategias. En lugar de usar condicionales, se elige una estrategia (por ejemplo, descuento) y se aplica al precio base. Esto permite cambiar fácilmente la forma de cálculo sin modificar el resto del sistema**
 ```python
 
 class Observador:
@@ -37,7 +39,6 @@ inventario.actualizar_stock("Martillo", 50)
 
 
 ```
-**Este código define distintas formas de calcular el precio de un producto mediante clases que representan estrategias. En lugar de usar condicionales, se elige una estrategia (por ejemplo, descuento) y se aplica al precio base. Esto permite cambiar fácilmente la forma de cálculo sin modificar el resto del sistema**
 ---
 ##  Strategy
 
