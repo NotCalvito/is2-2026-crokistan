@@ -35,8 +35,8 @@ ventas = SistemaVentas()
 inventario.agregar_observador(ventas)
 inventario.actualizar_stock("Martillo", 50)
 
+Este código define distintas formas de calcular el precio de un producto mediante clases que representan estrategias. En lugar de usar condicionales, se elige una estrategia (por ejemplo, descuento) y se aplica al precio base. Esto permite cambiar fácilmente la forma de cálculo sin modificar el resto del sistema
 ```
-Este código define distintas formas de calcular el precio de un producto mediante clases que representan estrategias. En lugar de usar condicionales, se elige una estrategia (por ejemplo, descuento) y se aplica al precio base. Esto permite cambiar fácilmente la forma de cálculo sin modificar el resto del sistema.
 ---
 ##  Strategy
 
