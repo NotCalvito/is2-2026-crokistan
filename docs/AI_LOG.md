@@ -55,3 +55,26 @@ Una interfaz demasiado simple, sin color.
 
 **¿Qué modificamos y por qué?**
 Ajustamos el prompt para qué haga mejor aquellos aspectos donde consideramos había fallado y manualmente ajustamos el tamaño de la letra, lo descentramos, le añadimos espacio entre botones y cambiamos el color de los estos mismos para que se vea mejor.
+
+
+## Entrada 004 — Semana 4
+**Herramienta:** ChatGPT
+
+**Responsable:** Dev Lead
+
+
+**¿Para qué se usó?**
+
+Comentar el codigo de manera ordenada
+
+
+**¿Qué generó la IA?**
+
+Unos ajustes al codigo y comentarios muy explicativos
+
+
+**¿Qué modificamos y por qué?**
+Ajuste el prompt para que borre los ajustes y solo me devuelva los comentarios; Luego solo agarre lo importante de los comentarios
+
+
+
