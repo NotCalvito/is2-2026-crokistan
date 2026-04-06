@@ -28,15 +28,16 @@ def insertar_producto(data):
         raise ValueError("Error: El producto ya existe. ¿Desea cambiarlo por el actual?")
     
     # ============================
-    # 🔍 VERIFICAR SI YA EXISTE (Codigo)
+    # 🔍 VERIFICAR SI YA EXISTE (Código)
     # ============================
-    query_check = "SELECT * FROM productos WHERE Codigo = %s"
+    query_check = "SELECT 1 FROM productos WHERE Codigo = %s"
     cursor.execute(query_check, (codigo,))
     resultado = cursor.fetchone()
 
     if resultado:
+        cursor.close()
         conexion.close()
-        raise ValueError("Error: Un producto ya posee ese codigo; por favor cambialo; gracias bro")
+        raise ValueError("Error: Ya existe un producto con ese código. Por favor ingrese uno diferente.")
 
 
     # ============================
