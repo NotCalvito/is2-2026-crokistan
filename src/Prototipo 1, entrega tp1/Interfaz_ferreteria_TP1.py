@@ -196,9 +196,19 @@ class ConsoleLogger(Observer):
 class DatabaseObserver(Observer):
     def update(self, data):
         try:
-            insertar_producto(data) #Manda los datos a la BD
-            messagebox.showinfo("Éxito", "Producto guardado correctamente")
-        except Exception as e: #Devuelve Error al momento que falle la BD
-            messagebox.showerror("Error", str(e))
+            alerta = insertar_producto(data)
 
+            if alerta:
+                messagebox.showwarning(
+                    "Atención",
+                    "Producto guardado, pero requiere reposición"
+                )
+            else:
+                messagebox.showinfo(
+                    "Éxito",
+                    "Producto guardado correctamente"
+                )
+
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
 
