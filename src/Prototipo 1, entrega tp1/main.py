@@ -11,6 +11,4 @@ app = StockUI(root) #Abre la interfaz
 app.add_observer(ConsoleLogger())
 app.add_observer(DatabaseObserver())
 
-app.add_observer(ConsoleLogger())
-app.add_observer(DatabaseObserver())
 root.mainloop()
