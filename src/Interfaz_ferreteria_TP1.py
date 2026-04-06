@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
+from stock import insertar_producto
+from tkinter import messagebox #Para devolver mensajes al usuario
 
 # ============================
 # PATRÓN OBSERVER (INTERFAZ)
@@ -188,20 +190,15 @@ class ConsoleLogger(Observer):
     """Observador que imprime datos en consola (debug)."""
     def update(self, data):
         print("Datos recibidos en UI:", data)
-
-
 # ============================
-# EJECUCIÓN
+# OBSERVER FUCIONAL xd
 # ============================
+class DatabaseObserver(Observer):
+    def update(self, data):
+        try:
+            insertar_producto(data) #Manda los datos a la BD
+            messagebox.showinfo("Éxito", "Producto guardado correctamente")
+        except Exception as e: #Devuelve Error al momento que falle la BD
+            messagebox.showerror("Error", str(e))
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.geometry("600x400")
 
-    app = StockUI(root)
-
-    # Registro de observer (ejemplo)
-    logger = ConsoleLogger()
-    app.add_observer(logger)
-
-    root.mainloop()
