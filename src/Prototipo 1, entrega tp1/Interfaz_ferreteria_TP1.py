@@ -196,19 +196,16 @@ class ConsoleLogger(Observer):
 class DatabaseObserver(Observer):
     def update(self, data):
         try:
-            alerta = insertar_producto(data)
+            resultado = insertar_producto(data)
 
-            if alerta:
-                messagebox.showwarning(
-                    "Atención",
-                    "Producto guardado, pero requiere reposición"
-                )
+            if resultado == "actualizado":
+                messagebox.showinfo("Actualizado", "Producto actualizado correctamente")
+
+            elif resultado == "alerta":
+                messagebox.showwarning("Atención", "Stock bajo, requiere reposición")
+
             else:
-                messagebox.showinfo(
-                    "Éxito",
-                    "Producto guardado correctamente"
-                )
+                messagebox.showinfo("Éxito", "Producto guardado correctamente")
 
         except Exception as e:
             messagebox.showerror("Error", str(e))
-

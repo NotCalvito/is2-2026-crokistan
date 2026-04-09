@@ -1,4 +1,5 @@
 from conexion import get_connection
+from tkinter import messagebox
 
 def insertar_producto(data):
     conexion = get_connection()
@@ -16,28 +17,53 @@ def insertar_producto(data):
     if precio <= 0 or cantidad <= 0:
         raise ValueError("Precio y cantidad no pueden ser negativos o iguales a 0")
 
-    # ============================
+     # ============================
     # 🔍 VERIFICAR SI YA EXISTE (Nombre)
     # ============================
-    query_check = "SELECT * FROM productos WHERE Nombre = %s"
+    query_check = "SELECT ID FROM productos WHERE Nombre = %s"
     cursor.execute(query_check, (nombre,))
     resultado = cursor.fetchone()
 
     if resultado:
+        respuesta = messagebox.askyesno(
+            "Producto existente",
+            "El producto ya existe. ¿Desea reemplazarlo?"
+        )
+
+        if not respuesta:
+            cursor.close()
+            conexion.close()
+            raise ValueError("Operación cancelada por el usuario")
+
+        # ============================
+        # 🔄 UPDATE
+        # ============================
+        query_update = """
+        UPDATE productos
+        SET Codigo=%s, Precio=%s, Cantidad=%s, Proveedor=%s
+        WHERE Nombre=%s
+        """
+
+        valores_update = (codigo, precio, cantidad, proveedor, nombre)
+
+        cursor.execute(query_update, valores_update)
+        conexion.commit()
+
+        cursor.close()
         conexion.close()
-        raise ValueError("Error: El producto ya existe. ¿Desea cambiarlo por el actual?")
+
+        return "actualizado"
     
     # ============================
-    # 🔍 VERIFICAR SI YA EXISTE (Código)
+    # 🔍 VERIFICAR SI YA EXISTE (Codigo)
     # ============================
-    query_check = "SELECT 1 FROM productos WHERE Codigo = %s"
+    query_check = "SELECT * FROM productos WHERE Codigo = %s"
     cursor.execute(query_check, (codigo,))
     resultado = cursor.fetchone()
 
     if resultado:
-        cursor.close()
         conexion.close()
-        raise ValueError("Error: Ya existe un producto con ese código. Por favor ingrese uno diferente.")
+        raise ValueError("Error: Un producto ya posee ese codigo; por favor cambialo; gracias bro")
 
 
     # ============================
