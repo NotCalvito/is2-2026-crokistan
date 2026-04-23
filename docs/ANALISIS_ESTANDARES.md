@@ -1,6 +1,6 @@
 Cuadro comparativo 
 <img width="753" height="396" alt="image" src="https://github.com/user-attachments/assets/f6b712bc-92cb-4e89-b131-e1f5c6673d62" />
-<img width="759" height="442" alt="image" src="https://github.com/user-attachments/assets/af23612c-0ea3-4d0b-b020-f6924231e46a" />
+<img width="753" height="396" alt="image" src="https://github.com/user-attachments/assets/af23612c-0ea3-4d0b-b020-f6924231e46a" />
 
 
 
