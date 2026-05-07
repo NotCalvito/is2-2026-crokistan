@@ -105,3 +105,19 @@ Unas fórmulas y algunas justificaciones.
 
 **¿Qué modificamos y por qué?**
 Cambié la redacción para que sea más resumido y cambié algunos aspectos que la IA generó de manera errónea.
+
+## Entrada 006 — Semana 8
+**Herramienta:** ChatGPT y Gemini
+
+**Responsable:** DevLead
+
+**¿Para qué se usó?**
+La IA se utilizo mayormente como compañero de dual programming, durante la creación del backend y conexión a la base de datos utilizaba las herramientas de inteligencia artificial para checkear si la estructura es correcta o si hay un error que capaz no note. Luego su uso mas secundario fue para entender mejor la estructura del frontend de manera mas agilizada.
+
+**¿Qué generó la IA?**
+Correcciones en el codigo, comentarios en el codigo, sugerencias.
+
+**¿Qué modificamos y por qué?**
+Errores pequeños que cometia la IA, Modificaciones no deseadas en el codigo, Nombres de datos que la IA inventaba.
+
+
