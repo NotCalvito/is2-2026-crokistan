@@ -17,7 +17,7 @@ Para obtener datos que evaluar podríamos hacer pruebas con distintos usuarios e
 
 - Métrica sencilla y medible elegida: Tiempo promedio para completar tareas  
 Para evaluar esta métrica en el prototipo actual, podríamos utilizar la siguiente fórmula:  
-<img width="372" height="61" alt="image" src="https://github.com/user-attachments/assets/77e051c4-835c-43f0-a3ec-8682fc0951b6" />
+<img width="370" height="51" alt="image" src="https://github.com/user-attachments/assets/88546f54-8491-41e4-a204-8f4fb1b5eaa7" />
 Para obtener datos para evaluar podríamos hacer pruebas con distintos usuarios pidiéndoles que hagan una determinada tarea, contando la suma total de tiempo y cuántos usuarios fueron evaluados en la prueba podríamos hacer la fórmula.  
 
 __Relación con ISO 13407 – Diseño Centrado en el Usuario__  
