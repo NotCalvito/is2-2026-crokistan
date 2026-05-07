@@ -1,4 +1,4 @@
-B0. Investigación previa
+## B0. Investigación previa
 
 Clase de equivalencia
 
@@ -38,7 +38,7 @@ Para la validación del precio de un producto, este debe ser un valor positivo m
 
 
 
-B1. Pruebas unitarias con TDD
+## B1. Pruebas unitarias con TDD
 Clase bajo prueba: StockManager (se encuentra en el archivo stock.py)
 
 Herramienta: Framework unittest de Python
@@ -64,7 +64,7 @@ Casos de prueba propuestos:
 <img width="712" height="516" alt="image" src="https://github.com/user-attachments/assets/168ed35d-8b59-465f-afe1-3a79558426b6" />
 
 
-B2. Framework de pruebas y automatización CI/CD
+## B2. Framework de pruebas y automatización CI/CD
 
 Framework: Para el desarrollo de las pruebas unitarias se seleccionó el framework unittest. Esta decisión se fundamenta en su pertenencia 
 a la biblioteca estándar de Python, lo que elimina la necesidad de gestionar dependencias externas y mitiga riesgos de compatibilidad en el 
@@ -77,7 +77,7 @@ Captura de pantalla del workflow
 Video de YouTube: https://youtu.be/Z_dBRNbsiUw 
 
 
-B3. Diseño conceptual de pruebas de integración (no implementar)
+## B3. Diseño conceptual de pruebas de integración (no implementar)
 1. Identificación de Dependencias Externas
 
 Para que nuestro Sistema de Gestión de Inventario funcione en un entorno real, interactúa con:
