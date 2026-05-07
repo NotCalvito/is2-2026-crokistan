@@ -24,4 +24,4 @@ jobs:
 
     - name: Run Unit Tests
       run: |
-        python "src/Interfaz Figma TP2/tests/unit/test_stock.py"
+        python "src/Prototipo 2, Entrega tp2/tests/unit/test_stock.py"
