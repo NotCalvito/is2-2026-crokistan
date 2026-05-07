@@ -92,3 +92,16 @@ El cual fue generado para que la IA asistiese con la conclusión, pues no estáb
 ¿Qué partes del análisis fueron generadas o asistidas por IA?
 La misma conclusión fue redactada tomando en cuenta las sugerencias de la IA, pero transformadas por nosotros en un texto coherente que responda la consigna.
 
+## Entrada 004 — Semana 8
+**Herramienta:** ChatGPT
+
+**Responsable:** Ux Lead
+
+**¿Para qué se usó?**
+Para que ayude con la auditoría de usabilidad según ISO 9241-11.
+
+**¿Qué generó la IA?**
+Unas fórmulas y algunas justificaciones.
+
+**¿Qué modificamos y por qué?**
+Cambié la redacción para que sea más resumido y cambié algunos aspectos que la IA generó de manera errónea.
