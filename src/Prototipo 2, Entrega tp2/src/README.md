@@ -7,6 +7,14 @@ This folder contains all application source code.
 ```
 src/
 ├── app/                      # Main application code
+│  └── backend/
+│       ├── __pycache__/
+│           ├── conexion.cpython-314
+│           ├── stock.cpython-314
+│       ├── app.py
+│       ├── conexion.py
+│       ├── stock.py
+│       ├── sucursales.py
 │   ├── components/           # React components
 │   │   ├── ui/              # Reusable UI components (shadcn/ui)
 │   │   ├── figma/           # Figma-specific components
