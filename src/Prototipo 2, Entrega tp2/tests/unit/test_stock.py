@@ -1,4 +1,4 @@
-import unittest
+""" import unittest
 import sys
 import os
 
@@ -21,8 +21,31 @@ except ImportError:
     # Listamos lo que hay en la carpeta para debuguear en el video si falla
     if os.path.exists(ruta_backend):
         print(f"Contenido de la carpeta: {os.listdir(ruta_backend)}")
-    sys.exit(1)
+    sys.exit(1) """
+import unittest
+import sys
+import os
 
+# Buscamos la raíz del proyecto (donde empieza el primer 'src')
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# Subimos hasta llegar a la carpeta "Prototipo 2, Entrega tp2"
+project_root = os.path.dirname(os.path.dirname(current_dir))
+
+# Agregamos la carpeta 'src' al path
+src_path = os.path.join(project_root, "src")
+if src_path not in sys.path:
+    sys.path.insert(0, src_path)
+
+try:
+    # Intentamos la importación siguiendo la estructura de carpetas
+    from app.backend.stock import StockManager
+    print("✅ ¡Conectado! StockManager cargado correctamente.")
+except ImportError as e:
+    print(f"❌ Error: Python sigue sin verlo. Detalle: {e}")
+    # Plan B: Importación directa si lo anterior falla
+    sys.path.insert(0, os.path.join(src_path, "app", "backend"))
+    from stock import StockManager
+    print("✅ ¡Conectado vía Plan B!")
 
 
 # ==========================================================
