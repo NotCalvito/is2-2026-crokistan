@@ -76,7 +76,7 @@ Unos ajustes al codigo y comentarios muy explicativos
 **¿Qué modificamos y por qué?**
 Ajuste el prompt para que borre los ajustes y solo me devuelva los comentarios; Luego solo agarre lo importante de los comentarios
 
-## Entrada 004 — Semana 6
+## Entrada 005 — Semana 6
 **Herramienta:** ChatGPT
 
 **Responsable:** UX Lead
@@ -92,7 +92,7 @@ El cual fue generado para que la IA asistiese con la conclusión, pues no estáb
 ¿Qué partes del análisis fueron generadas o asistidas por IA?
 La misma conclusión fue redactada tomando en cuenta las sugerencias de la IA, pero transformadas por nosotros en un texto coherente que responda la consigna.
 
-## Entrada 005 — Semana 8
+## Entrada 006 — Semana 8
 **Herramienta:** ChatGPT
 
 **Responsable:** Ux Lead
@@ -106,7 +106,7 @@ Unas fórmulas y algunas justificaciones.
 **¿Qué modificamos y por qué?**
 Cambié la redacción para que sea más resumido y cambié algunos aspectos que la IA generó de manera errónea.
 
-## Entrada 006 — Semana 8
+## Entrada 007 — Semana 8
 **Herramienta:** ChatGPT y Gemini
 
 **Responsable:** DevLead
