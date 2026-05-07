@@ -19,3 +19,9 @@ Para obtener datos que evaluar podríamos hacer pruebas con distintos usuarios e
 Para evaluar esta métrica en el prototipo actual, podríamos utilizar la siguiente fórmula:
 Eficiencia = Suma total de tiempos​ / Cantidad de usuarios 
 Para obtener datos para evaluar podríamos hacer pruebas con distintos usuarios pidiéndoles que hagan una determinada tarea, contando la suma total de tiempo y cuántos usuarios fueron evaluados en la prueba podríamos hacer ña fórmula.
+
+  - Relación con ISO 13407 – Diseño Centrado en el Usuario
+La relación con esta norma la encontramos en la aplicación principios de diseño centrado en el usuario:
+- Comprensión del contexto de uso: El sistema está pensado para empleados de una ferretería, considerando tareas reales de control de inventario, registro de movimientos y reposición de productos.
+- Definición de requisitos de usuario: Se identificaron necesidades como rapidez en el registro de movimientos, control de stock y facilidad de búsqueda de productos.
+- Diseño de soluciones: Se desarrolló una interfaz orientada a la facilidad de uso, incorporando validaciones, mensajes de retroalimentación y una navegación consistente para mejorar la interacción del usuario.
