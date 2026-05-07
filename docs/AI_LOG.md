@@ -92,7 +92,7 @@ El cual fue generado para que la IA asistiese con la conclusión, pues no estáb
 ¿Qué partes del análisis fueron generadas o asistidas por IA?
 La misma conclusión fue redactada tomando en cuenta las sugerencias de la IA, pero transformadas por nosotros en un texto coherente que responda la consigna.
 
-## Entrada 004 — Semana 8
+## Entrada 005 — Semana 8
 **Herramienta:** ChatGPT
 
 **Responsable:** Ux Lead
