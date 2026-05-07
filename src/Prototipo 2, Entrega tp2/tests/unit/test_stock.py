@@ -2,38 +2,43 @@ import unittest
 import sys
 import os
 
-# 1. Obtenemos la carpeta donde está este archivo (unit)
+# 1. Obtenemos la ubicación de este archivo (test_stock.py)
+# Está en: .../tests/unit/test_stock.py
 directorio_actual = os.path.dirname(os.path.abspath(__file__))
 
-# 2. Construimos la ruta relativa subiendo niveles y entrando a backend
-# Salimos de unit (..), salimos de tests (..), entramos a src/app/backend
-ruta_backend = os.path.abspath(os.path.join(
-    directorio_actual, 
-    '../../src/app/backend'
-))
+# 2. Subimos los niveles necesarios para llegar a la raíz del proyecto
+# Subimos de 'unit' a 'tests', y de 'tests' a la carpeta 'Prototipo 2, Entrega tp2'
+raiz_proyecto = os.path.dirname(os.path.dirname(directorio_actual))
 
-# 3. Lo agregamos al sistema
+# 3. Construimos la ruta exacta hacia el backend
+# Según tu estructura: src/app/backend
+ruta_backend = os.path.join(raiz_proyecto, "src", "app", "backend")
+
+# 4. Lo agregamos al sistema para que Python "vea" a stock.py
 if ruta_backend not in sys.path:
     sys.path.insert(0, ruta_backend)
 
 try:
     from stock import StockManager # type: ignore
-    print(f" Importación exitosa desde: {ruta_backend}")
+    print(f"✅ Importación exitosa desde: {ruta_backend}")
 except ImportError as e:
-    print(f" Error: No se encontró stock.py en {ruta_backend}")
+    print(f"❌ Error: No se encontró stock.py en {ruta_backend}")
+    # Es mejor detener la ejecución aquí si no encuentra el archivo
+    sys.exit(1)
 
 # =========================================================
-# 2. CLASE DE PRUEBAS (CON LOS 6 CASOS)
+# 2. CLASE DE PRUEBAS
 # =========================================================
 class TestStockUnitario(unittest.TestCase):
     
     def setUp(self):
         """Configuración antes de cada test."""
         try:
-            # Inicializamos el manager para la sucursal del SQL
+            # Intentamos inicializar normalmente
             self.manager = StockManager("Sucursal Centro")
         except Exception:
-            # Si falla la conexión a DB, forzamos la creación para testear solo lógica
+            # Si falla (ej. no hay base de datos en el servidor de GitHub), 
+            # forzamos la creación del objeto para testear la lógica de validación
             self.manager = StockManager.__new__(StockManager)
 
     # --- TÉCNICA: VALORES LÍMITE ---
