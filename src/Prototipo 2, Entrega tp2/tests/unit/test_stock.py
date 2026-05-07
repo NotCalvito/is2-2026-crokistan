@@ -1,48 +1,27 @@
 import unittest
-
 import sys
-
 import os
 
+current_path = os.path.dirname(os.path.abspath(__file__))
 
+project_root = os.path.dirname(os.path.dirname(current_path))
 
-# 1. Obtenemos la carpeta donde está este archivo (unit)
-
-directorio_actual = os.path.dirname(os.path.abspath(__file__))
-
-
-
-# 2. Construimos la ruta relativa subiendo niveles y entrando a backend
-
-# Salimos de unit (..), salimos de tests (..), entramos a src/app/backend
-
-ruta_backend = os.path.abspath(os.path.join(
-
-    directorio_actual,
-
-    '../../source/app/backend'
-
-))
-
-
-
-# 3. Lo agregamos al sistema
+ruta_backend = os.path.join(project_root, "src", "app", "backend")
 
 if ruta_backend not in sys.path:
-
     sys.path.insert(0, ruta_backend)
 
-
+print(f"DEBUG - Buscando en: {ruta_backend}")
 
 try:
-
     from stock import StockManager # type: ignore
-
-    print(f" Importación exitosa desde: {ruta_backend}")
-
-except ImportError as e:
-
-    print(f" Error: No se encontró stock.py en {ruta_backend}")
+    print("StockManager cargado con éxito.")
+except ImportError:
+    print(f"Error: No se encontró stock.py en {ruta_backend}")
+    # Listamos lo que hay en la carpeta para debuguear en el video si falla
+    if os.path.exists(ruta_backend):
+        print(f"Contenido de la carpeta: {os.listdir(ruta_backend)}")
+    sys.exit(1)
 
 
 
