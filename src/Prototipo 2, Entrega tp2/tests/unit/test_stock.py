@@ -2,28 +2,33 @@ import unittest
 import sys
 import os
 
-# 1. Obtenemos la ubicación de este archivo (test_stock.py)
-# Está en: .../tests/unit/test_stock.py
+# 1. Buscamos la carpeta raíz del repositorio 'is2-2026-crokistan'
 directorio_actual = os.path.dirname(os.path.abspath(__file__))
+# Subimos niveles hasta llegar a la carpeta principal del repo
+# unit -> tests -> Entrega tp2 -> Prototipo 2... vamos a buscar la carpeta 'src'
+# Lo más seguro es buscar el nombre del proyecto
+base_path = directorio_actual
+while "is2-2026-crokistan" in base_path:
+    if os.path.exists(os.path.join(base_path, "src")):
+        break
+    parent = os.path.dirname(base_path)
+    if parent == base_path: break
+    base_path = parent
 
-# 2. Subimos los niveles necesarios para llegar a la raíz del proyecto
-# Subimos de 'unit' a 'tests', y de 'tests' a la carpeta 'Prototipo 2, Entrega tp2'
-raiz_proyecto = os.path.dirname(os.path.dirname(directorio_actual))
+# 2. Ahora armamos la ruta exacta basándonos en lo que vimos en el error de la captura
+# La ruta real donde está stock.py es:
+ruta_backend = os.path.join(base_path, "src", "Prototipo 2, Entrega tp2", "src", "app", "backend")
 
-# 3. Construimos la ruta exacta hacia el backend
-# Según tu estructura: src/app/backend
-ruta_backend = os.path.join(raiz_proyecto, "src", "app", "backend")
-
-# 4. Lo agregamos al sistema para que Python "vea" a stock.py
 if ruta_backend not in sys.path:
     sys.path.insert(0, ruta_backend)
 
+print(f"Buscando stock.py en: {ruta_backend}")
+
 try:
     from stock import StockManager # type: ignore
-    print(f"✅ Importación exitosa desde: {ruta_backend}")
-except ImportError as e:
+    print("✅ StockManager cargado exitosamente.")
+except ImportError:
     print(f"❌ Error: No se encontró stock.py en {ruta_backend}")
-    # Es mejor detener la ejecución aquí si no encuentra el archivo
     sys.exit(1)
 
 # =========================================================
