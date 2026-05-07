@@ -1,5 +1,5 @@
 __¿Quiénes son los usuarios objetivo del sistema?__  
-  Lo usuarios objetivos del sistema son tanto los empleados que atienden al público, como aquellos que gestionan el stock de las ferreterías.  
+  Los usuarios objetivos del sistema son tanto los empleados que atienden al público, como aquellos que gestionan el stock de las ferreterías.  
   
 __¿Qué tareas principales realizan y en qué contexto (dispositivo, entorno, restricciones)?__  
   La tarea que realizarían principalmente sería registrar movimientos de compra, venta, movimiento de productos entre sucursales, etc. Para ello se ayudarían de las propias herramientas que ofrece el software, como los filtros para ver el stock separado por sucursales, la sección de "a reponer" que indica aquellos productos que tienen stock por debajo del mínimo, el propio sistema de registro de compras con los parámetros respectivos que solicita, etc.  
