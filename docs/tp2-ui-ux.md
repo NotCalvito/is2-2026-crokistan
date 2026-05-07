@@ -13,12 +13,12 @@ __Criterio de eficacia:__
 - Métrica sencilla y medible elegida: Porcentaje de tareas completadas correctamente  
 Para evaluar esta métrica en el prototipo actual, podríamos utilizar la siguiente fórmula:  
 <img width="459" height="61" alt="image" src="https://github.com/user-attachments/assets/beb80a4f-e342-483d-93dd-23d42bbd1953" />  
-Para obtener datos que evaluar podríamos hacer pruebas con distintos usuarios en un determinado tiempo, contando un total de tareas fijas para cada uno y cuantas de esas tareas han logrado completar exitosamente.  
+Para obtener datos que evaluar podríamos hacer pruebas con distintos usuarios en un determinado tiempo, contando un total de tareas fijas para cada uno y cuántas de esas tareas han logrado completar exitosamente.  
 
 - Métrica sencilla y medible elegida: Tiempo promedio para completar tareas  
 Para evaluar esta métrica en el prototipo actual, podríamos utilizar la siguiente fórmula:  
 <img width="142" height="55" alt="image" src="https://github.com/user-attachments/assets/fd0e5c42-0dd5-42b0-87a4-6130024f7cbf" />  
-Para obtener datos para evaluar podríamos hacer pruebas con distintos usuarios pidiéndoles que hagan una determinada tarea, contando la suma total de tiempo y cuántos usuarios fueron evaluados en la prueba podríamos hacer ña fórmula.  
+Para obtener datos para evaluar podríamos hacer pruebas con distintos usuarios pidiéndoles que hagan una determinada tarea, contando la suma total de tiempo y cuántos usuarios fueron evaluados en la prueba podríamos hacer la fórmula.  
 
 __Relación con ISO 13407 – Diseño Centrado en el Usuario__  
 La relación con esta norma la encontramos en la aplicación principios de diseño centrado en el usuario:  
