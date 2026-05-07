@@ -21,7 +21,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+    
+    - name: List files for debugging
+      run: ls -R
 
     - name: Run Unit Tests
       run: |
-        python "src/Prototipo 2, Entrega tp2/tests/unit/test_stock.py"
+        export PYTHONPATH=$PYTHONPATH:$(pwd)
+        find . -name "test_stock.py" -exec python3 {} +
