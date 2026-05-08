@@ -21,11 +21,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-    
+        pip install mysql-connector-python
+
     - name: List files for debugging
       run: ls -R
 
     - name: Run Unit Tests
       run: |
-        export PYTHONPATH=$PYTHONPATH:$(pwd)
-        find . -name "test_stock.py" -exec python3 {} +
+        export PYTHONPATH=$(pwd)/src/app/backend
+        python -m unittest discover -s tests

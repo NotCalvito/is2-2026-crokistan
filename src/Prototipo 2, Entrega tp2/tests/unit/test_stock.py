@@ -2,25 +2,19 @@ import unittest
 import sys
 import os
 
-# 1. Obtenemos la carpeta donde está este archivo (unit)
-directorio_actual = os.path.dirname(os.path.abspath(__file__))
+# Ruta absoluta a src/app/backend
+ruta_backend = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        "../../src/app/backend"
+    )
+)
 
-# 2. Construimos la ruta relativa subiendo niveles y entrando a backend
-# Salimos de unit (..), salimos de tests (..), entramos a src/app/backend
-ruta_backend = os.path.abspath(os.path.join(
-    directorio_actual,
-    '../../src/app/backend'
-))
-
-# 3. Lo agregamos al sistema
+# Agregamos backend al path
 if ruta_backend not in sys.path:
     sys.path.insert(0, ruta_backend)
 
-try:
-    from stock import StockManager # type: ignore
-    print(f" Importación exitosa desde: {ruta_backend}")
-except ImportError as e:
-    print(f" Error: No se encontró stock.py en {ruta_backend}")
+from stock import StockManager
 
 # =========================================================
 # 2. CLASE DE PRUEBAS (CON LOS 6 CASOS)
