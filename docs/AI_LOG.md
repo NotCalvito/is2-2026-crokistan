@@ -121,3 +121,17 @@ Correcciones en el codigo, comentarios en el codigo, sugerencias.
 Errores pequeños que cometia la IA, Modificaciones no deseadas en el codigo, Nombres de datos que la IA inventaba.
 
 
+## Entrada 008 — Semana 8
+
+**Herramienta:** Gemini
+
+**Responsable:** QA Lead
+
+**¿Para qué se usó?**
+La IA se utilizó para asistir en el desarrollo del código de los casos de prueba unitarios y la configuración del archivo YAML para el pipeline de GitHub Actions. También sirvió como apoyo para el planteamiento de las pruebas de integración futuras (B3)
+
+**¿Qué generó la IA?**
+Estructuras base para los tests, sugerencias de configuración para el pipeline y guías/sugerencias para las pruebas de integración
+
+**¿Qué modificamos y por qué?**
+Se corrigieron las rutas de acceso que generaba IA para que coincida con los nombres de nuestros archivos y carpetas. 
