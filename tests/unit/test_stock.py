@@ -6,7 +6,7 @@ import os
 ruta_backend = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
-        "../../src/app/backend"
+        "../../src/Prototipo 2, Entrega tp2/src/app/backend"
     )
 )
 
