@@ -12,46 +12,103 @@
 
 ---
 
+---
+
 ## 2. Herramientas gratuitas elegidas (stack de automatización)
 
 | Nivel de prueba | Herramienta | ¿Qué automatiza en este proyecto? | Justificación |
 | :--- | :--- | :--- | :--- |
-| Unitarias | [Jest / JUnit / pytest / …] | [Funciones de validación, lógica de negocio aislada] | [Breve razón: facilidad de configuración, soporte en el stack, etc.] |
-| Integración | [Mockito / Sinon.js / WireMock / …] | [Simulación de llamadas a la API, mocks de base de datos] | [Por qué es adecuada para el proyecto] |
-| Sistema / E2E | [Cypress / Playwright / Selenium] | [Flujo de login, navegación básica] | [Comparativa breve y motivo de la elección] |
-| Estrés | [k6 / JMeter / Locust] | [Pruebas de carga sobre endpoints, en el futuro] | [Ventajas de la herramienta para el proyecto] |
+| Unitarias | `unittest` | Validación de datos, reglas de negocio y control de stock en funciones aisladas del backend. | Es una herramienta nativa de Python, simple de integrar y suficiente para las necesidades actuales del proyecto. |
+| Integración | `unittest.mock` | Simulación de conexiones a base de datos y futuras APIs externas. | Permite reemplazar dependencias externas por objetos simulados sin modificar el código original. |
+| Sistema / E2E | `Playwright` (planificado) | Navegación entre pantallas, interacción con formularios y flujos completos del sistema. | Ofrece automatización moderna para aplicaciones web, soporte multiplataforma y buena integración con aplicaciones React. |
+| Estrés | `Locust` (planificado) | Simulación de múltiples usuarios realizando operaciones simultáneas sobre el sistema. | Permite modelar escenarios de carga utilizando Python y resulta liviano para proyectos académicos. |
 
 ---
 
 ## 3. Ejemplos de casos de prueba unitaria (clases de equivalencia y valores límite)
 
-> **Funcionalidad elegida:** [Ej: validación de formulario de login, cálculo de stock mínimo]
+> **Funcionalidad elegida:** validación de datos de productos y stock.
 
 ### Clases de equivalencia identificadas
-- **Válidas:** [Descripción]
-- **Inválidas (por debajo/fuera de rango):** [Descripción]
-- **Inválidas (por encima/fuera de rango):** [Descripción]
+
+- **Válidas:**  
+  Productos con nombre no vacío, precio mayor a 0, stock actual mayor o igual a 0 y stock mínimo válido.
+
+- **Inválidas (por debajo/fuera de rango):**  
+  Precio igual o menor a 0, stock negativo y stock mínimo negativo.
+
+- **Inválidas (formato incorrecto):**  
+  Nombre vacío o compuesto únicamente por espacios.
+
+---
 
 ### Tres casos de prueba representativos
-1. **Caso 1 (válido):** Entrada = [valor], Resultado esperado = [describir]
-2. **Caso 2 (inválido – límite inferior):** Entrada = [valor justo fuera del límite], Resultado esperado = [error o comportamiento]
-3. **Caso 3 (inválido – límite superior):** Entrada = [valor justo fuera del límite], Resultado esperado = [error o comportamiento]
 
-*Nota: estos casos están implementados (o se implementarán) en `tests/unit/[archivo].test.*`*
+1. **Caso 1 (válido):**  
+   Entrada = producto `"Pincel"` con precio `850`, stock `20` y stock mínimo `5`.  
+   Resultado esperado = los datos son aceptados sin lanzar excepciones.
+
+2. **Caso 2 (inválido – límite inferior):**  
+   Entrada = precio `0`.  
+   Resultado esperado = se lanza una excepción `ValueError` indicando que el precio es inválido.
+
+3. **Caso 3 (inválido – valor fuera de rango):**  
+   Entrada = stock actual `-1`.  
+   Resultado esperado = se lanza una excepción `ValueError` indicando que el stock no puede ser negativo.
+
+> Nota: estos casos se encuentran implementados en `tests/unit/test_stock.py`.
 
 ---
 
 ## 4. Plan de mocks / stubs para pruebas de integración
 
-- **Dependencias externas a simular:**
-  1. [Base de datos / API de autenticación]
-  2. [Servicio de correo / pasarela de pago / etc.]
-- **Estrategia de dobles:**
-  - Usaremos [herramienta] para crear [mocks / stubs / fakes] que devuelvan respuestas predefinidas.
-  - Ejemplo de prueba de integración:
-    - *Flujo:* Login → mock de base de datos devuelve usuario válido → se genera token → se verifica que el frontend redirige al dashboard.
-    - *Pseudocódigo (o descripción):* `mockDatabase.findUser('test@example.com')` devuelve `{ id: 1, name: 'Test' }`. La prueba verifica que el componente muestra el nombre del usuario.
-- **Ubicación en el repo:** `tests/integration/` y `tests/mocks/` (si aplica).
+### Dependencias externas a simular
+
+1. Base de datos MySQL.
+2. API externa de proveedores (funcionalidad futura).
+
+---
+
+### Estrategia de dobles
+
+- Se utilizará `unittest.mock` para crear mocks y stubs que simulen respuestas de componentes externos.
+- Los mocks permitirán reemplazar temporalmente conexiones reales a la base de datos o respuestas HTTP durante la ejecución de las pruebas.
+
+---
+
+### Ejemplo de prueba de integración
+
+**Escenario:** actualización automática del precio de un producto a partir de información obtenida desde un proveedor externo.
+
+**Flujo:**
+1. El sistema solicita el precio actualizado del producto a una API externa.
+2. El mock de la API devuelve una respuesta simulada con un nuevo precio.
+3. La lógica de negocio procesa el valor recibido y calcula el precio final.
+4. El sistema intenta actualizar el valor en la base de datos.
+5. El mock de la base de datos verifica que la operación `UPDATE` fue ejecutada correctamente.
+
+**Ejemplo conceptual:**
+
+```python
+mock_api.obtener_precio("Pincel") -> {"precio": 950}
+```
+
+La prueba valida que el sistema procese correctamente el nuevo valor y genere la actualización esperada.
+
+---
+
+### Ubicación en el repositorio
+
+```text
+tests/unit/
+tests/integration/
+tests/mocks/
+```
+
+Estas carpetas contendrán respectivamente:
+- pruebas unitarias,
+- pruebas de integración,
+- objetos simulados reutilizables para testing.
 
 ---
 
