@@ -65,18 +65,16 @@
 ### Dependencias externas a simular
 
 1. Base de datos MySQL.
-2. API externa de proveedores (funcionalidad futura).
+2. API externa de proveedores.
 
----
 
 ### Estrategia de dobles
 
 - Se utilizará `unittest.mock` para crear mocks y stubs que simulen respuestas de componentes externos.
 - Los mocks permitirán reemplazar temporalmente conexiones reales a la base de datos o respuestas HTTP durante la ejecución de las pruebas.
 
----
 
-### Ejemplo de prueba de integración
+**Ejemplo de prueba de integración:**
 
 **Escenario:** actualización automática del precio de un producto a partir de información obtenida desde un proveedor externo.
 
@@ -90,12 +88,11 @@
 **Ejemplo conceptual:**
 
 ```python
-mock_api.obtener_precio("Pincel") -> {"precio": 950}
+mock_api.obtener_precio("Martillo") -> {"precio": 950}
 ```
 
 La prueba valida que el sistema procese correctamente el nuevo valor y genere la actualización esperada.
 
----
 
 ### Ubicación en el repositorio
 
