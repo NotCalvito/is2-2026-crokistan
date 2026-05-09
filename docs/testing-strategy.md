@@ -40,7 +40,6 @@
 - **Inválidas (formato incorrecto):**  
   Nombre vacío o compuesto únicamente por espacios.
 
----
 
 ### Tres casos de prueba representativos
 
