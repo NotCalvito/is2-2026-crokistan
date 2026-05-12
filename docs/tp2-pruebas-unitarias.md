@@ -72,7 +72,10 @@ entorno de ejecución. Asimismo, su arquitectura inspirada en JUnit permite un d
 al trabajar con clases nos garantiza una estructura coherente con el resto del sistema desarrollado.
 
 Captura de pantalla del workflow
-<img width="1218" height="426" alt="image" src="https://github.com/user-attachments/assets/71b62eb2-03fc-43f7-97b4-2b037a9a75da" />
+<img width="557" height="290" alt="image" src="https://github.com/user-attachments/assets/33c63704-2613-4f9b-b895-7bf1c2578ede" />
+
+<img width="488" height="146" alt="image" src="https://github.com/user-attachments/assets/d7ff7c6a-13fd-449f-aa0a-a612ca9ead15" />
+
 
 Video de YouTube: https://youtu.be/Z_dBRNbsiUw 
 
