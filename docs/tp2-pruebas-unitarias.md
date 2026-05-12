@@ -71,7 +71,7 @@ a la biblioteca estándar de Python, lo que elimina la necesidad de gestionar de
 entorno de ejecución. Asimismo, su arquitectura inspirada en JUnit permite un diseño de pruebas estrictamente orientado a objetos, por lo que 
 al trabajar con clases nos garantiza una estructura coherente con el resto del sistema desarrollado.
 
-Captura de pantalla del workflow
+Captura de pantalla del workflow:
 <img width="557" height="290" alt="image" src="https://github.com/user-attachments/assets/33c63704-2613-4f9b-b895-7bf1c2578ede" />
 
 <img width="488" height="146" alt="image" src="https://github.com/user-attachments/assets/d7ff7c6a-13fd-449f-aa0a-a612ca9ead15" />
