@@ -46,8 +46,8 @@ Herramienta: Framework unittest de Python
 Definición de Clases de Equivalencia y Límites
 
 Variable: Precio (price)
-* Clase Válida: Números reales positivos (> 0).
-* Clase Inválida: Números reales negativos (< 0) y el valor cero (0).
+* Clase Válida: Números racionales positivos (> 0).
+* Clase Inválida: Números racionales negativos (< 0) y el valor cero (0).
 * Valor Límite Crítico: 0 (Frontera de rechazo).
 
 Variable: Stock Actual (currentStock)
