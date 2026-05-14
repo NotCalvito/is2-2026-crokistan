@@ -4,7 +4,6 @@ __¿Quiénes son los usuarios objetivo del sistema?__
 __¿Qué tareas principales realizan y en qué contexto (dispositivo, entorno, restricciones)?__  
   La tarea que realizarían principalmente sería registrar movimientos de compra, venta, movimiento de productos entre sucursales, etc. Para ello se ayudarían de las propias herramientas que ofrece el software, como los filtros para ver el stock separado por sucursales, la sección de "a reponer" que indica aquellos productos que tienen stock por debajo del mínimo, el propio sistema de registro de compras con los parámetros respectivos que solicita, etc.  
   Lo ideal sería que utilicen una computadora de escritorio o laptop para realizar estas operaciones y manejar el sistema. Los registros de venta se realizarían donde atienden a los empleados, mientras que los de movimiento de stock en la parte del almacén.  
-  La restricción principal sería el dispositivo del sistema, ya que necesitar una computadora es menos práctico y barato que poder manejarlo en algo más cómodo como el celular, lo cual lo haría más transportable y cómodo. Adicional a esto, podemos añadir la falta de login en el sistema por ahora y la incapacidad del sistema de registrar clientes frecuentes.  
 
 __Auditoría de usabilidad según ISO 9241-11:__  
 Criterios de usabilidad elegidos: eficacia y eficiencia  
