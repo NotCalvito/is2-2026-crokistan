@@ -17,6 +17,10 @@ Responde a la pregunta:
 
 La verificación compara el software contra sus especificaciones técnicas y funcionales.
 
+### Ejemplo aplicado al proyecto
+
+Actualmente se realiza una prueba unitaria que verifica que el sistema genere correctamente una excepción (`ValueError`) cuando se intenta registrar un producto con stock negativo, asegurando que la lógica de validación cumpla con los requisitos definidos.
+
 ---
 
 ## Validación
@@ -29,9 +33,20 @@ Responde a la pregunta:
 
 Aunque el sistema funcione técnicamente bien, puede no adaptarse a la forma de trabajo real del usuario. En ese caso, el software pasa la verificación, pero falla la validación.
 
+### Ejemplo aplicado al proyecto
+
+Se planea validar con el Product Owner cuáles serán los motivos predefinidos y obligatorios para registrar salidas de stock, como ventas, roturas o mercadería vencida, para asegurar que el sistema se adapte al funcionamiento real de la ferretería.
+
 ---
 
 # 2. Planificación de V&V para un Sprint
+
+| Sprint  | Actividad de V&V                                                                                                                                  | Técnica           | Responsable | Herramienta                 |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------- | --------------------------- |
+| Actual  | Implementar pruebas unitarias para verificar la generación automática de alertas cuando un producto quede por debajo del stock mínimo configurado | Pruebas unitarias | QA Lead     | `unittest` + GitHub Actions |
+| Próximo | Validar los flujos críticos del sistema                                                                                                           | Pruebas de humo   | Dev Lead    | Criterios de aceptación     |
+
+---
 
 ## Actividad de Verificación
 
@@ -91,6 +106,12 @@ Conviene para detectar:
 * Errores conceptuales.
 * Problemas de diseño.
 
+### Aplicación al proyecto
+
+El primer módulo a inspeccionar sería `App.tsx`, ubicado en `src/Interfaz Figma TP2/src/app/App.tsx`, ya que actúa como componente principal de la interfaz y centraliza la navegación, estructura general e integración entre componentes. Revisarlo primero permite detectar problemas de arquitectura, dependencias innecesarias o errores de organización que afecten al resto del sistema.
+
+---
+
 ### Pruebas automáticas
 
 Convienen para:
@@ -107,23 +128,62 @@ Lo ideal es utilizar ambas de forma complementaria.
 
 ## Herramienta utilizada
 
-PMD
+ESLint
 
-PMD permite analizar el código sin ejecutarlo.
+ESLint permite analizar el código sin ejecutarlo y es especialmente útil en proyectos desarrollados con TypeScript y React.
 
-### Errores que puede detectar
+### Primera regla aplicada
 
-* Variables no utilizadas.
+`no-unused-vars`
+
+Esta regla detecta variables e imports no utilizados, ayudando a:
+
+* eliminar código innecesario,
+* mejorar la legibilidad,
+* reducir código muerto,
+* prevenir posibles errores lógicos.
+
+### Otros errores que puede detectar
+
 * Código duplicado.
+* Variables sin uso.
 * Métodos demasiado largos.
 * Condiciones innecesarias.
-* Posibles errores en cálculos o validaciones.
+* Posibles errores de sintaxis y estilo.
 
 ---
 
 # 5. Métodos Formales de Verificación
 
 Los métodos formales son imprescindibles en sistemas donde un error puede tener consecuencias graves.
+
+## Invariante del sistema
+
+### Invariante de la clase `StockManager`
+
+Todo producto gestionado por la clase debe cumplir que:
+
+* El nombre no puede estar vacío.
+* El precio debe ser mayor a 0.
+* El stock actual debe ser mayor o igual a 0.
+* El stock mínimo debe ser mayor o igual a 0.
+
+Esto se garantiza mediante el método `_validar_data()`, ejecutado antes de insertar o actualizar productos.
+
+---
+
+## ¿Cómo se probaría?
+
+Se utilizaría una prueba unitaria que verifique que `_validar_data()` rechace datos inválidos.
+
+Por ejemplo:
+
+* Si un producto posee precio negativo,
+* o stock negativo,
+
+el sistema debe lanzar un `ValueError`, garantizando que el invariante de la clase se mantenga.
+
+---
 
 ## Ejemplos de sistemas críticos
 
@@ -175,4 +235,9 @@ El Product Owner:
 
 ---
 
+## Preguntas para la próxima Sprint Review
 
+* ¿Considera que el sistema cubre todas las necesidades principales de gestión y control del stock en las distintas sucursales de la ferretería?
+* ¿La plataforma resulta lo suficientemente clara e intuitiva como para facilitar el trabajo diario de los empleados y mejorar la organización del negocio?
+
+---
