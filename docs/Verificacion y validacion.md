@@ -1,180 +1,84 @@
+# Mini Plan de Verificación y Validación (V&V)
 
-# Verificación y Validación — Sistema de Stock para Ferretería
+## Integrantes del Proyecto
 
-Trabajo práctico sobre conceptos de Verificación y Validación (V&V) aplicados a un sistema de gestión de stock para una ferretería.
-
----
-
-# 1. Verificación vs Validación
-
-## Verificación
-
-La verificación se enfoca en la parte técnica del software.
-Consiste en comprobar que el sistema esté correctamente construido según los requisitos y que el código funcione sin errores.
-
-Responde a la pregunta:
-
-> “¿Estamos construyendo el producto correctamente?”
-
-La verificación compara el software contra sus especificaciones técnicas y funcionales.
+Sistema de gestión de stock para ferretería.
 
 ---
 
-## Validación
+# SECCIÓN 1: Verificación vs Validación
 
-La validación se enfoca en el usuario y en las necesidades reales del negocio.
+## 1. Verificación
 
-Responde a la pregunta:
+Actualmente realizamos una verificación mediante una prueba unitaria que comprueba que el sistema genere correctamente una excepción (`ValueError`) cuando se intenta registrar un producto con stock negativo, asegurando así que la lógica de validación funcione según los requisitos definidos.
 
-> “¿Estamos construyendo el producto correcto?”
+## 2. Validación
 
-Aunque el sistema funcione técnicamente bien, puede no adaptarse a la forma de trabajo real del usuario. En ese caso, el software pasa la verificación, pero falla la validación.
-
----
-
-# 2. Planificación de V&V para un Sprint
-
-## Actividad de Verificación
-
-### Peer Review obligatorio antes del Merge
-
-### Objetivo
-
-Garantizar calidad técnica del código.
-
-### Implementación
-
-Antes de integrar código a `main`:
-
-* Otro desarrollador revisa el Pull Request.
-* Se verifican:
-
-  * estándares de código,
-  * pruebas unitarias,
-  * funcionamiento correcto.
+Validaríamos con el Product Owner cuáles serán los motivos predefinidos y obligatorios para registrar las salidas de stock (por ejemplo: venta, rotura o mercadería vencida) para facilitar el registro de las mismas.
 
 ---
 
-## Actividad de Validación
+# SECCIÓN 2: Planificación de V&V
 
-### Smoke Testing basado en Historias de Usuario
+## Próximos 2 sprints (cada sprint = 1 semana)
 
-### Objetivo
-
-Comprobar que las funcionalidades realmente resuelvan el problema de la ferretería.
-
-### Implementación
-
-Al finalizar el sprint:
-
-* Ejecutar pruebas funcionales.
-* Validar flujos críticos del sistema.
-* Comprobar que el comportamiento sea el esperado por el usuario.
+| Sprint  | Actividad de V&V                                                                                                                                  | Técnica           | Responsable | Herramienta               |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------- | ------------------------- |
+| Actual  | Implementar pruebas unitarias para verificar la generación automática de alertas cuando un producto quede por debajo del stock mínimo configurado | Pruebas unitarias | QA Lead     | unittest + GitHub Actions |
+| Próximo | Validar los flujos críticos del sistema                                                                                                           | Pruebas de humo   | Dev Lead    | Criterios de aceptación   |
 
 ---
 
-# 3. Inspección de Código vs Prueba Automática
+# SECCIÓN 3: Inspección y análisis estático
 
-| Inspección de Código                   | Prueba Automática                |
-| -------------------------------------- | -------------------------------- |
-| Revisión manual del código             | Ejecución automática del sistema |
-| Detecta problemas de diseño y lógica   | Detecta fallos funcionales       |
-| No necesita ejecutar el programa       | Sí requiere ejecución            |
-| Analiza legibilidad y buenas prácticas | Analiza resultados esperados     |
+## a) ¿Qué archivo o módulo inspeccionarían primero? ¿Por qué?
 
-## ¿Cuándo usar cada una?
+El primer módulo que inspeccionaríamos sería `App.tsx`, ubicado en `src/Interfaz Figma TP2/src/app/App.tsx`, porque funciona como componente principal de la interfaz y probablemente centraliza la navegación, la estructura general y la integración entre componentes. Revisarlo primero permite detectar problemas de arquitectura, dependencias innecesarias o errores de organización que afectan a todo el proyecto.
 
-### Inspección de código
+## b) Herramienta de análisis estático
 
-Conviene para detectar:
+Una herramienta de análisis estático adecuada sería ESLint, ya que el proyecto utiliza TypeScript y React.
 
-* Código poco mantenible.
-* Errores conceptuales.
-* Problemas de diseño.
-
-### Pruebas automáticas
-
-Convienen para:
-
-* Validar funcionalidades rápidamente.
-* Detectar errores luego de cambios frecuentes.
-* Automatizar regresiones.
-
-Lo ideal es utilizar ambas de forma complementaria.
+La primera regla que aplicaríamos sería `no-unused-vars`, porque ayuda a detectar variables o imports no utilizados, mejorando la legibilidad del código, eliminando código innecesario y evitando posibles errores lógicos dentro de los componentes.
 
 ---
 
-# 4. Análisis Estático Automatizado
+# SECCIÓN 4: Método formal conceptual
 
-## Herramienta utilizada
+## a) Invariante de una clase importante
 
-PMD
+### Invariante de la clase `StockManager`
 
-PMD permite analizar el código sin ejecutarlo.
+Todo producto gestionado por la clase debe cumplir que:
 
-### Errores que puede detectar
+* El nombre no puede estar vacío.
+* El precio debe ser mayor a 0.
+* El stock actual debe ser mayor o igual a 0.
+* El stock mínimo debe ser mayor o igual a 0.
 
-* Variables no utilizadas.
-* Código duplicado.
-* Métodos demasiado largos.
-* Condiciones innecesarias.
-* Posibles errores en cálculos o validaciones.
+Esto se garantiza mediante el método `_validar_data()`, que se ejecuta antes de insertar o actualizar un producto.
 
----
+## b) ¿Cómo lo probarían?
 
-# 5. Métodos Formales de Verificación
+La prueba unitaria verifica que el método `_validar_data()` rechace datos inválidos.
 
-Los métodos formales son imprescindibles en sistemas donde un error puede tener consecuencias graves.
+Por ejemplo:
 
-## Ejemplos de sistemas críticos
+* Si se intenta ingresar un producto con precio negativo.
+* O un producto con stock negativo.
 
-* Sistemas aeronáuticos.
-* Equipamiento médico.
-* Centrales nucleares.
-* Sistemas ferroviarios.
-* Software bancario.
-* Criptografía.
-
-## ¿Por qué son importantes?
-
-Permiten demostrar matemáticamente que el sistema:
-
-* es seguro,
-* consistente,
-* y libre de ciertos errores.
-
-## ¿Por qué no se usan siempre?
-
-Porque:
-
-* Son costosos.
-* Requieren mucho tiempo.
-* Necesitan conocimientos matemáticos avanzados.
-* Son difíciles de aplicar en sistemas muy grandes.
+El sistema debe lanzar una excepción `ValueError`, garantizando así que el invariante de la clase se mantenga correctamente.
 
 ---
 
-# 6. Product Owner en Scrum/XP
+# SECCIÓN 5: Reunión de validación (simulación)
 
-En una Sprint Review, el Product Owner cumple el rol de enlace entre el equipo y el cliente.
+## Preguntas para el Product Owner en la Sprint Review
 
-## Responsabilidades
+1. ¿Considera que el sistema cubre todas las necesidades principales de gestión y control del stock en las distintas sucursales de la ferretería?
 
-* Validar funcionalidades terminadas.
-* Comunicar la visión del producto.
-* Gestionar feedback.
-* Ajustar prioridades del Product Backlog.
+2. ¿La plataforma resulta lo suficientemente clara e intuitiva como para facilitar el trabajo diario de los empleados y mejorar la organización del negocio?
 
-## Relación con las pruebas
-
-El Product Owner:
-
-* Define criterios de aceptación.
-* Valida que el producto cumpla necesidades reales.
-* No interviene directamente en el código.
-* Se enfoca en el “qué” y no en el “cómo”.
-
----
 
 
 ---
