@@ -176,26 +176,5 @@ El Product Owner:
 
 ---
 
-# Tecnologías y Conceptos Relacionados
-
-* Scrum
-* XP
-* Testing
-* Verificación y Validación
-* PMD
-* Pull Requests
-* Smoke Testing
-* Peer Review
-
----
-
-# Proyecto Base
-
-Sistema de gestión de stock para una ferretería:
-
-* Control de inventario
-* Gestión de productos
-* Registro de movimientos
-* Validación de operaciones
 
 ---
