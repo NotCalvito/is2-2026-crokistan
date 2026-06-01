@@ -19,3 +19,5 @@ Patrones de diseño utilizados:
 Reporte semanal: 
 
 Link de Figma: https://www.figma.com/make/rLqj2Bmp8DxknvGbL9T5nq/Interfaz-de-control-de-stock?p=f&t=KHKrfENcCxlEHyrk-0
+
+Link de Github de la interfaz: https://github.com/JuanPacoPedrodelaMar/Interfaz_de_control_de_stock_ferreter-a
