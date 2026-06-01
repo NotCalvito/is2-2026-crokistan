@@ -17,3 +17,5 @@ Patrones de diseño utilizados:
 - factory
 
 Reporte semanal: 
+
+Link de Figma: https://www.figma.com/make/rLqj2Bmp8DxknvGbL9T5nq/Interfaz-de-control-de-stock?p=f&t=KHKrfENcCxlEHyrk-0
